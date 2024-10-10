@@ -14,12 +14,12 @@ const Jokes = () => {
       if (response.ok) {
         const data = await response.json();
 
-        setJokes((prevState) => [
+        setJokes((prevState: IJoke[]) => [
           ...prevState,
           { joke: data.value }
         ]);
       } else {
-        setJokes((prevState) => [
+        setJokes((prevState: IJoke[]) => [
           ...prevState,
           { joke: "Failed to load a joke" },
         ]);
