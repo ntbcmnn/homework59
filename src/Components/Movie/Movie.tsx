@@ -1,5 +1,5 @@
-import React, { ChangeEvent, useEffect } from 'react';
-import { IMovie } from '../../types';
+import React, { ChangeEvent, useEffect } from "react";
+import { IMovie } from "../../types";
 
 interface IMovieProps extends IMovie {
   updateMovie: (id: string, updatedName: string) => void;
@@ -7,7 +7,7 @@ interface IMovieProps extends IMovie {
 }
 
 const Movie: React.FC<IMovieProps> = React.memo(
-  ({name, id, updateMovie, deleteMovie}) => {
+  ({ name, id, updateMovie, deleteMovie }) => {
     useEffect((): void => {
       console.log(`[Movie] ${name} render`);
     }, [name]);
@@ -18,7 +18,9 @@ const Movie: React.FC<IMovieProps> = React.memo(
           type="text"
           value={name}
           key={id}
-          onChange={(e: ChangeEvent<HTMLInputElement>) => updateMovie(id, e.target.value)}
+          onChange={(e: ChangeEvent<HTMLInputElement>) =>
+            updateMovie(id, e.target.value)
+          }
           className="form-control w-100"
         />
         <button

@@ -28,7 +28,9 @@ const MoviesForm: React.FC<Props> = ({ addMovie }) => {
         type="text"
         value={newMovieName}
         placeholder="Movie name..."
-        onChange={(e: React.ChangeEvent<HTMLInputElement>) => setNewMovieName(e.target.value)}
+        onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+          setNewMovieName(e.target.value)
+        }
         className="form-control w-100"
       />
       <button type="submit" className="btn btn-primary">

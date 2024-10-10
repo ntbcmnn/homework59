@@ -40,7 +40,9 @@ const Movies = () => {
   };
 
   const deleteMovie = (id: string): void => {
-    setMovies((prevState: IMovie[]) => prevState.filter((movie: IMovie) => movie.id !== id));
+    setMovies((prevState: IMovie[]) =>
+      prevState.filter((movie: IMovie) => movie.id !== id),
+    );
   };
 
   return (
