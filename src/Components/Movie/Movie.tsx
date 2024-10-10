@@ -19,7 +19,7 @@ const Movie: React.FC<IMovieProps> = React.memo(
           value={name}
           key={id}
           onChange={(e) => updateMovie(id, e.target.value)}
-          className="form-control w-25"
+          className="form-control w-100"
         />
         <button
           type="button"

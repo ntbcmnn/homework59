@@ -33,7 +33,7 @@ const Movies = () => {
 
   const updateMovie = (id: string, updatedName: string): void => {
     setMovies((prevState) =>
-      prevState.map(movie =>
+      prevState.map((movie) =>
         movie.id === id ? { ...movie, name: updatedName } : movie,
       ),
     );
@@ -44,7 +44,7 @@ const Movies = () => {
   };
 
   return (
-    <div>
+    <div className="d-flex flex-column align-items-center mb-3">
       <MoviesForm addMovie={addMovie} />
       {movies.length === 0 ? (
         <h4 className="text-dark-emphasis">No movies have been added yet.</h4>

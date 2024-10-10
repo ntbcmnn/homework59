@@ -22,17 +22,17 @@ const MoviesForm: React.FC<Props> = ({ addMovie }) => {
   return (
     <form
       onSubmit={handleSubmit}
-      className="d-flex justify-content-start gap-3 my-4"
+      className="d-flex justify-content-start align-items-center gap-3 my-4"
     >
       <input
         type="text"
         value={newMovieName}
         placeholder="Movie name..."
         onChange={(e) => setNewMovieName(e.target.value)}
-        className="form-control w-25"
+        className="form-control w-100"
       />
       <button type="submit" className="btn btn-primary">
-        Add to list
+        Add
       </button>
     </form>
   );
