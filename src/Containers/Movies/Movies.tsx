@@ -21,8 +21,8 @@ const Movies = () => {
     },
   ]);
 
-  const addMovie = (movie: IMovie) => {
-    setMovies((prevState) => [
+  const addMovie = (movie: IMovie): void => {
+    setMovies((prevState: IMovie[]) => [
       ...prevState,
       {
         name: movie.name,
@@ -32,15 +32,15 @@ const Movies = () => {
   };
 
   const updateMovie = (id: string, updatedName: string): void => {
-    setMovies((prevState) =>
-      prevState.map((movie) =>
+    setMovies((prevState: IMovie[]) =>
+      prevState.map((movie: IMovie) =>
         movie.id === id ? { ...movie, name: updatedName } : movie,
       ),
     );
   };
 
   const deleteMovie = (id: string): void => {
-    setMovies((prevState) => prevState.filter((movie) => movie.id !== id));
+    setMovies((prevState: IMovie[]) => prevState.filter((movie: IMovie) => movie.id !== id));
   };
 
   return (
@@ -49,7 +49,7 @@ const Movies = () => {
       {movies.length === 0 ? (
         <h4 className="text-dark-emphasis">No movies have been added yet.</h4>
       ) : (
-        movies.map((movie) => (
+        movies.map((movie: IMovie) => (
           <Movie
             key={movie.id}
             id={movie.id}
