@@ -5,7 +5,7 @@ import AddJoke from "../../Components/AddJoke/AddJoke.tsx";
 
 const Jokes = () => {
   const [jokes, setJokes] = useState<IJoke[]>([]);
-  const url: string = "https://api.chucknorris.io/jokes/randomb";
+  const url: string = "https://api.chucknorris.io/jokes/random";
 
   const fetchData = async (): Promise<void> => {
     try {
