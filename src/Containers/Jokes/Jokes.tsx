@@ -1,11 +1,11 @@
-import { useEffect, useState } from "react";
-import { IJoke } from "../../types";
-import Joke from "../../Components/Joke/Joke.tsx";
-import AddJoke from "../../Components/AddJoke/AddJoke.tsx";
+import { useEffect, useState } from 'react';
+import { IJoke } from '../../types';
+import Joke from '../../Components/Joke/Joke.tsx';
+import AddJoke from '../../Components/AddJoke/AddJoke.tsx';
 
 const Jokes = () => {
   const [jokes, setJokes] = useState<IJoke[]>([]);
-  const url: string = "https://api.chucknorris.io/jokes/random";
+  const url: string = 'https://api.chucknorris.io/jokes/randomb';
 
   const fetchData = async (): Promise<void> => {
     try {
@@ -25,20 +25,28 @@ const Jokes = () => {
         ]);
       }
     } catch (error) {
-      alert(error);
+      console.error(error);
+
+      setJokes((prevState: IJoke[]) => [
+        ...prevState,
+        {joke: 'Failed to load a joke'},
+      ]);
     }
   };
 
-  useEffect(() => {
+  useEffect((): void => {
     void fetchData();
   }, []);
 
   return (
     <div className="d-flex flex-column align-items-center my-5 text-center border-black">
-      <AddJoke onAdd={fetchData} />
-      {jokes.map((joke: IJoke, id: number) => (
-        <Joke key={id} joke={joke.joke} />
-      ))}
+      <AddJoke onAdd={fetchData}/>
+      {jokes.length > 0 ? (
+        jokes.map((joke: IJoke, id: number) => (
+          <Joke key={id} joke={joke.joke}/>
+        ))
+      ) : <p>No jokes found</p>
+      }
     </div>
   );
 };
